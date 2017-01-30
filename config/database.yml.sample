@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  template: template0
+  host: localhost
+  username: teachbase
+  password: teachbase
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: teachbase_dev
+
+test:
+  <<: *default
+  database: teachbase_test
