@@ -12,9 +12,10 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+/vendor/*
 config/database.yml
 config/secrets.yml
+coverage
 
 # Ignore Byebug command history file.
 .byebug_history

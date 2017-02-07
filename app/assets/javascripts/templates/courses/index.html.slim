@@ -1,0 +1,23 @@
+h3 Teachbase courses
+
+.row
+  uib-alert ng-repeat=("alert in alerts") class="alert alert-warning"
+    | {{ alert.msg }}
+
+ul.list-group
+  li.list-group-item ng-repeat=("course in courses")
+    .clearfix
+      h2
+        | {{ course.name }}
+      small  
+        | {{ course.owner_name }}
+      h5  
+        | {{ course.description }}
+
+hr
+nav ng-show="showNav"
+  ul.pagination.justify-content-center
+    li.page-item
+      a.page-link href="" ng-click="previousPage()" &larr; Previous
+    li.page-item
+      a.page-link href="" ng-click="nextPage()" Next &rarr;
