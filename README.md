@@ -1,24 +1,32 @@
-# README
+# Приложение для работы с API Teachbase
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Тестовое приложение для отображения списка открытых курсов в Teachbase. 
 
-Things you may want to cover:
+## Требования к реализации:
 
-* Ruby version
+* Список курсов должен быть с постраничной навигацией.
 
-* System dependencies
+## Авторизация
 
-* Configuration
+Приложение позволяет работать с любым аккаунтом Teachbase,
+для этого необходимо в процессе авторизации передать API key.
 
-* Database creation
+Процесс авторизации можно посмотреть здесь: [github.com](https://github.com/doorkeeper-gem/doorkeeper/wiki/Client-Credentials-flow)
 
-* Database initialization
+Описание API можно посмотреть здесь: [s1.teachbase.ru](http://s1.teachbase.ru/lurker)
+Для получения списка курсов аккаунта, можно воспользоваться методом, описаным здесь: [s1.teachbase.ru](http://s1.teachbase.ru/lurker/endpoint/v1/course_sessions-GET.html)
 
-* How to run the test suite
+## Важные моменты:
 
-* Services (job queues, cache servers, search engines, etc.)
+* если запрос в API Teachbase не был успешным, то показываем на странице последнюю успешно загруженную копию списка (первой страницы, без возможности переключения по страницам) и сообщение `"В данный момент Teachbase недоступен. Загружена копия от ..."`;
 
-* Deployment instructions
+* отслеживать долгий простой сервера Teachbase и не делать лишние запросы к API, если Teachbase лежит, а сразу показывать копию + сообщение о том, что `"Teachbase лежит уже X часов"`;
 
-* ...
+## Развёртывание приложения
+```
+# bundle install
+# Create config/database.yml, configure it for postgresql
+# rake db:create
+# rake db:migrate
+# rspec
+```
