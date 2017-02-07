@@ -32,7 +32,7 @@ class ResponseCoordinator
 
   def self.last_saved_courses(params)
     {
-      courses: Course.limit(params[:per_page]),
+      courses: Course.where(access_type: :open).limit(params[:per_page]),
       status: 404
     }
   end
@@ -47,6 +47,7 @@ class ResponseCoordinator
       total_tasks:  course['course']['total_tasks'],
       started_at:   course['started_at'],
       finished_at:  course['finished_at'],
+      access_type:  course['access_type'],
       course_id:    course['course_id']
     }
   end
