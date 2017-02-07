@@ -25,8 +25,11 @@
 ## Развёртывание приложения
 ```
 # bundle install
+# rake bower:install
 # Create config/database.yml, configure it for postgresql
+# Create config/secrets.yml, configure it for authorization on Teachbase API
 # rake db:create
 # rake db:migrate
 # rspec
+# rubocop
 ```
