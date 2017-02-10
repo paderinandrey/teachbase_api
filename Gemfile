@@ -6,7 +6,13 @@ git_source(:github) do |repo_name|
 end
 
 source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
   gem 'rails-assets-tether', '>= 1.3.3'
+end
+
+group :assets  do
+  gem 'angularjs-rails'
 end
 
 gem 'angular-rails-templates'
